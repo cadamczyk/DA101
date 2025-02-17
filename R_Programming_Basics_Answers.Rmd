@@ -1,0 +1,115 @@
+---
+title: "R_Programming_Basics"
+author: "DA101"
+date: "2025-02-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Ok, let's get started.
+
+```{r}
+#assign 5 + 7 to x 
+x <- 5+7
+
+#print the value of x
+print(x)
+
+```
+
+```{r}
+#assign 8-4 to y
+y <- 8-4
+
+#print the value of y
+print(y)
+
+```
+
+```{r}
+#create variable w by multiplying x and y
+w <- x * y
+
+#print the value of w
+print(w)
+
+```
+
+**vectors**
+
+Now, let's create a small collection of numbers called a vector. Any object that contains data is called a data structure and numeric vectors are the simplest type of data structure in R. In fact, even a single number is considered a vector of length one.
+
+The easiest way to create a vector is with the c() function, which stands for 'concatenate' or 'combine'. To create a vector containing the numbers 1.1, 9, and 3.14, type c(1.1, 9, 3.14). Try it now and store the result in a variable called z.
+
+```{r}
+#Make a vector containing the numbers 1.1, 9, and 3.14. Save the result in a variable z.  
+z <- c(1.1, 9, 3.14)
+
+
+#Then print the contents of z.
+print(z)
+
+```
+
+Numeric vectors can be used in arithmetic expressions. Run the following to see what happens: z * 2 + 100.
+
+You code here:
+
+```{r}
+z
+z*2 + 100
+
+```
+
+Hopefully you got the following output
+
+[1] 102.20 118.00 106.28
+
+First, R multiplied each of the three elements in z by 2. Then it added 100 to each element to get the result you see above.
+
+This illustrates the vectorization concept in R.  Many operations or functions, when applied to a vector, are applied to each element of the vector.
+
+Other common arithmetic operators are `+`, `-`, `/`, and `^` (where x^2 means 'x squared'). To take the square root, use the sqrt() function and to take the absolute value, use the abs() function.
+
+Take the square root of z - 1 and assign it to a new variable called my_sqrt.
+
+```{r}
+#your code here
+my_sqrt <- sqrt(z-1)
+
+```
+
+Before you view the contents of the my_sqrt variable, what do you think it contains?
+
+1: a vector of length 3
+2: a single number (i.e a vector of length 1)
+3: a vector of length 0 (i.e. an empty vector)
+
+Now find out
+
+```{r}
+#display the contents of my_sqrt
+print(my_sqrt)
+
+#check the class of my_sqrt using class()
+class(my_sqrt)
+```
+
+Now, create a new variable called my_div that gets the value of z divided by my_sqrt.
+
+and display the contents of my_div
+
+```{r}
+#create my_div
+my_div <- z/my_sqrt
+
+#print my_div
+print(my_div)
+
+```
+Hopefully it looks something like this
+[1] 3.478505 3.181981 2.146460
+

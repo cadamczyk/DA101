@@ -1,0 +1,71 @@
+---
+title: "Basic Data Visualization"
+author: "DA101"
+date: "2025-02-17"
+output: html_document
+---
+```{r}
+install.packages("knitr")
+library(knitr)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#install the library ggplot2
+
+
+```
+
+```{r}
+#create dataset mtcars
+
+
+```
+
+```{r}
+#view top five rows of cars
+
+
+```
+
+```{r}
+#summary of our dataset
+
+
+```
+
+
+```{r}
+#Bar Chart
+
+
+```
+
+
+```{r}
+#Histogram
+
+  
+```
+
+```{r}
+#Line Chart
+
+
+```
+
+```{r}
+#Scatterplot
+
+
+```
+
+```{r}
+#Customization
+
+
+```
+

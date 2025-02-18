@@ -26,10 +26,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-#view top five rows of cars
+#view top five rows of mtcars
 
 
 ```
+
+```{r}
+#view bottom five rows of mtcars
+
+
+```
+
 
 ```{r}
 #summary of our dataset

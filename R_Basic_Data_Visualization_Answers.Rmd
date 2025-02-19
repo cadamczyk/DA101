@@ -1,0 +1,93 @@
+---
+title: "Basic Data Visualization"
+author: "DA101"
+date: "2025-02-17"
+output: html_document
+---
+```{r}
+install.packages("knitr")
+library(knitr)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#install the library ggplot2
+install.packages("ggplot2")
+library(ggplot2)
+```
+
+```{r}
+#create dataset mtcars
+data(mtcars)
+
+```
+
+```{r}
+#view top five rows of mtcars
+head(mtcars)
+
+```
+```{r}
+#view bottom 5 rows of mtcars
+tail(mtcars)
+
+```
+
+
+```{r}
+#summary of our dataset
+summary(mtcars)
+
+```
+
+
+```{r}
+#Bar Chart
+ggplot(mtcars, aes(x=cyl)) + 
+  geom_bar() +
+  xlab("Number of Cylinders") +
+  ylab("Frequency")
+
+```
+
+
+```{r}
+#Histogram
+ggplot(mtcars, aes(x=mpg)) + 
+  geom_histogram(binwidth=5) +
+  xlab("Miles Per Gallon") +
+  ylab("Frequency")
+  
+```
+
+```{r}
+#Line Chart
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+  geom_line() +
+  xlab("Weight") + 
+  ylab("Miles Per Gallon")
+
+```
+
+```{r}
+#Scatterplot
+ggplot(mtcars, aes(x=hp, y=mpg)) +
+  geom_point() +
+  xlab("Horsepower") +
+  ylab("Miles Per Gallon")
+
+```
+
+```{r}
+#Customization
+ggplot(mtcars, aes(x=hp, y=mpg)) +
+  geom_point(color = "red", size=4, shape=2) +
+  xlab("Horsepower") +
+  ylab("Miles Per Gallon") +
+  theme_minimal()
+
+```
+

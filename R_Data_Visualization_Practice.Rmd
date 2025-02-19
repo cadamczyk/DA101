@@ -1,0 +1,76 @@
+---
+title: "Data_Visualization_Practice"
+author: "DA101"
+date: "2025-02-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#install the library ggplot2
+
+
+```
+
+```{r}
+#create dataset iris
+
+
+```
+
+```{r}
+#view top rows of iris
+
+
+```
+
+```{r}
+#view bottom rows of iris
+
+
+```
+
+
+```{r}
+#summary of the iris dataset
+
+
+```
+
+
+```{r}
+#Create a Bar Chart looking at Petal.Length. Add labels to both axis.
+
+
+```
+
+
+```{r}
+#Create a Histogram looking at Petal.Width. Add labels to both axis and set bins to 5.
+
+  
+```
+
+```{r}
+#Create a Line Charting looking at the relationship between Sepal.Length and Petal.Length
+#Add labels to both axis.
+
+
+```
+
+```{r}
+#Create a Scatterplot looking at the relationship between Sepal.Width and Petal.Width
+#Add labels to both axis
+
+
+```
+
+```{r}
+#Choose one of the graphs from above and customize it
+
+
+```
+

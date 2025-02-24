@@ -1,0 +1,91 @@
+---
+title: "Data_Visualization_Practice"
+author: "DA101"
+date: "2025-02-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#install the library ggplot2
+install.packages("ggplot2")
+library(ggplot2)
+```
+
+```{r}
+#create dataset iris
+data(iris)
+
+```
+
+```{r}
+#view top rows of iris
+head(iris)
+
+```
+
+```{r}
+#view bottom rows of iris
+tail(iris)
+
+```
+
+
+```{r}
+#summary of our dataset
+summary(iris)
+
+```
+
+
+```{r}
+#Create a Bar Chart looking at Petal.Length. Add labels to both axis
+ggplot(iris, aes(x=Petal.Length)) +
+  geom_bar() +
+  xlab("Petal Length") +
+  ylab("Frequency")
+
+```
+
+
+```{r}
+#Create a Histogram looking at Petal.Width. Add labels to both axis and set bins to 5.
+ggplot(iris, aes(x=Petal.Width)) +
+  geom_histogram(bins=5) +
+  xlab("Petal Width") +
+  ylab("Frequency")
+  
+```
+
+```{r}
+#Create a Line Charting looking at the relationship between Sepal.Length and Petal.Length
+ggplot(iris, aes(x=Sepal.Length, y=Petal.Length)) +
+  geom_line() +
+  xlab("Sepal Length") +
+  ylab("Petal Length")
+
+```
+
+```{r}
+#Create a Scatterplot looking at the relationship between Sepal.Width and Petal.Width
+ggplot(iris, aes(x=Sepal.Width, y=Petal.Width)) +
+  geom_point() +
+  xlab("Sepal Width") +
+  ylab("Petal Width")
+
+
+```
+
+```{r}
+#Choose one of the graphs from above and customize it
+ggplot(iris, aes(x=Sepal.Width, y=Petal.Width)) +
+  geom_point(color = "blue", size = 2, shape = 3) +
+  xlab("Sepal Width") +
+  ylab("Petal Width") + 
+  theme_classic()
+
+```
+

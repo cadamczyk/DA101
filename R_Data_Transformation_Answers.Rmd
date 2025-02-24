@@ -1,0 +1,101 @@
+---
+title: "Data_Transformation"
+author: "DA101"
+date: "2025-02-20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#install packages nycflights13 and tidyverse
+install.packages("tidyverse")
+install.packages("nycflights13")
+
+library(tidyverse)
+library(nycflights13)
+
+```
+
+
+```{r}
+#load data set: flights
+data(flights)
+
+```
+
+
+```{r}
+#filter our data set to January 1
+filter(flights, month == 1, day == 1)
+
+```
+
+
+```{r}
+#Create a new data set called jan1 by filtering flights to January 1
+jan1 <- filter(flights, month == 1, day == 1)
+
+```
+
+
+```{r}
+#Create a new data set called dec31 by filtering flights to December 31
+dec31 <- filter(flights, month == 12, day == 31)
+
+```
+
+
+```{r}
+#Find all flights that departed in November OR December
+nov_dec1 <- filter(flights, month == 11 | month == 12)
+nov_dec2 <- filter(flights, month %in% c(11,12))
+
+```
+
+
+```{r}
+#Find all flights that were not delayed (on arrival or departure) by more than two hours (120 minutes)
+non_delay1 <- filter(flights, !(arr_delay > 120 | dep_delay > 120))
+non_delay2 <- filter(flights, arr_delay <= 120, dep_delay <= 120)
+
+```
+
+
+```{r}
+#Arrange rows of the data set flights
+arrange(flights, year, month, day)
+
+#Reorder the column dep_delay in descending order
+arrange(flights, desc(dep_delay))
+```
+
+
+```{r}
+#Select columns year, month, and day
+select(flights, year, month, day)
+```
+
+
+```{r}
+#Rename tail_num to tailnum
+rename(flights,tail_num = tailnum)
+
+```
+
+
+```{r}
+#Summarise flights to calculate the mean of dep_delay
+summarise(flights, delay=mean(dep_delay, na.rm = TRUE))
+```
+
+
+```{r}
+#Calculate the mean dep_delay; group by month
+by_month <- group_by(flights, month)
+summarise(by_month, delay = mean(dep_delay, na.rm = TRUE))
+
+```
+

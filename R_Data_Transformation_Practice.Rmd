@@ -1,0 +1,68 @@
+---
+title: "Data_Transformation_Practice"
+author: "DA101"
+date: "2025-02-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+#Import the tidyverse package and nycflights13
+
+
+
+```
+
+
+```{r}
+#Import the dataset flights
+
+
+```
+
+
+```{r}
+#summarise the dataset using summary()
+
+
+```
+
+
+```{r}
+#Find all flights that flew to Houston (IAH OR HOU)
+
+
+```
+
+
+```{r}
+#Find all flights that departed in July OR August
+
+
+```
+
+
+```{r}
+#Sort flights to find the flights that traveled the furthest distance. Use arrange() and desc()
+
+
+```
+
+
+```{r}
+#summarise flights and find the mean of arrival delay 
+
+
+```
+
+
+```{r}
+#Group by destination. Save this function to a new variable called by_dest. Then, find the mean arrive delay using by_dest
+
+
+```
+

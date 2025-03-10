@@ -1,0 +1,61 @@
+---
+title: "R_Homework1"
+author: "DA101"
+date: "2025-03-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("ggplot2")
+library(ggplot2)
+install.packages("tidyverse")
+library(tidyverse)
+```
+### How to make a histogram
+To make a histogram with ggplot2, add geom_histogram() to the ggplot2 template.
+You will use the data contained in the diamonds dataset, which comes with the ggplot2 package.
+
+```{r}
+#load the dataset diamonds
+
+
+```
+
+```{r}
+#Use summary() to summarize the dataset diamonds
+
+```
+
+
+```{r}
+#Plot a histogram of the carat variable in the diamonds dataset
+
+```
+
+
+```{r}
+#Find the minimum and maximum of the variable carat
+
+```
+
+How many bins might we want?  That may depend on the number of data points we have.  Let's see how may we have in diamonds.  We want to know what the range of values is in the carat variable.  To do that, we can use group_by and summarize.
+
+```{r}
+#Find the range of the variable carat by running the code below. Add carat to the group_by function
+diamonds %>% 
+  group_by() %>% 
+  summarise(n=n())
+
+```
+It looks like the diamonds are categorized based on .1 carat intervals so maybe a binwidth of .5 carats or so would look good
+
+```{r}
+#Create a histogram and set the binwidth to 0.5
+
+```
+
+

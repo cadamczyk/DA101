@@ -1,0 +1,70 @@
+---
+title: "Data_Transformation_Part2"
+author: "DA101"
+date: "2025-02-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+#Import the tidyverse package and nycflights13
+install.packages("tidyverse")
+library(tidyverse)
+
+install.packages("nycflights13")
+library(nycflights13)
+```
+
+```{r}
+#Import the dataset flights
+data(flights)
+
+```
+
+Besides selecting sets of existing columns, it’s often useful to add new columns that are functions of existing columns. That’s the job of mutate().
+
+mutate() always adds new columns at the end of your dataset so we’ll start by creating a narrower dataset so we can see the new variables. Remember that when you’re in RStudio, the easiest way to see all the columns is View().
+
+```{r}
+#create a new dataset called flights_sml by selecting columns month, day, dep_delay, arr_delay, distance, and air_time
+
+
+```
+
+
+```{r}
+#use mutate() to create a new column gain (dep_delay - arr_delay) and speed (distance/air_time * 60)
+
+```
+
+Use the pipe, %>%, to write multiple operations in one line of code
+```{r}
+#Calculate the mean distance and mean arrival delay grouped by destination
+
+```
+
+Use $ to select a specific column in the dataset flights
+```{r}
+#Find the average of dep_delay
+
+```
+The average of dep_delay is NA because there are missing values in the column. To count the number of missing values, use sum(is.na(x)).
+```{r}
+#Count the number of missing values in the column dep_delay. Use flights$dep_delay to select the column
+
+
+```
+To remove the NAs from our calculation, add na.rm = TRUE
+```{r}
+
+
+```
+To count the number of distinct (unique) values, use n_distinct(x).
+```{r}
+#Which destinations have the most carreirs?
+
+```

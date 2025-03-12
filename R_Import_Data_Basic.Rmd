@@ -1,0 +1,62 @@
+---
+title: "Importing Data"
+author: "DA101"
+date: "2025-03-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+
+install.packages("dplyr")
+library(dplyr)
+```
+
+
+```{r}
+#import file called students.csv
+
+```
+
+
+```{r}
+#view students
+
+```
+
+In the favourite.food column, there are a bunch of food items, and then the character string N/A, which should have been a real NA that R will recognize as “not available”. This is something we can address using the na argument. By default, read_csv() only recognizes empty strings ("") in this dataset as NAs, and we want it to also recognize the character string "N/A".
+```{r}
+#replace character "N/A" in favourite.food with a missing value
+
+```
+
+
+```{r}
+#view students
+
+```
+
+
+```{r}
+#check class of column mealPlan
+
+
+```
+
+Since meal_plan is a categorical variable with a known set of possible values, which in R should be represented as a factor:
+```{r}
+#change mealPlan from character class to a factor class
+
+
+```
+
+
+```{r}
+#change five to 5 in column AGE
+
+```

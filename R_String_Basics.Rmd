@@ -1,0 +1,76 @@
+---
+title: "Strings"
+author: "DA101"
+date: "2025-03-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#install packages tidyverse, and babynames
+
+```
+
+
+```{r}
+#Creating a string
+
+```
+
+
+```{r}
+#Forget to close the string
+
+
+```
+
+```{r}
+#Special characters
+
+```
+
+```{r}
+#Practice: Create a string containing the following value: He said "That's amazing!"
+
+
+```
+
+str_c() takes any number of vectors as arguments and returns a character vector:
+```{r}
+#Creating many strings from data
+
+
+
+
+```
+
+tibble() constructs a data frame
+```{r}
+#Use multiple strings to create a data frame 
+
+```
+
+str_flatten(): it takes a character vector and combines each element of the vector into a single string:
+```{r}
+
+```
+
+This makes it work well with summarize():
+```{r}
+
+```
+
+str_length() tells you the number of letters in the string:
+```{r}
+#String length
+
+```
+
+You could use this with count() to find the distribution of lengths of US baby names and then with filter() to look at the longest names, which happen to have 15 letters
+```{r}
+
+```
+

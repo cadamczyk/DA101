@@ -1,0 +1,115 @@
+---
+title: "DPLYR Vignette, using star wars data"
+output: html_document
+date: "2025-03-20"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+First let's install and load the necessary packages
+
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("dplyr")
+library(dplyr)
+```
+
+
+# Introduction to dplyr
+When working with data you must:
+
+  Figure out what you want to do.
+
+  Describe those tasks in the form of a computer program.
+
+  Execute the program.
+
+The dplyr package makes these steps fast and easy:
+
+  By constraining your options, it helps you think about      your data manipulation challenges.
+
+  It provides simple “verbs”, functions that correspond to    the most common data manipulation tasks, to help you        translate your thoughts into code.
+
+This document introduces you to dplyr’s basic set of tools, and shows you how to apply them to data frames  (aka tibbles in the Tidyverse)
+
+# Data: starwars
+
+To explore the basic data manipulation verbs of dplyr, we’ll use the dataset starwars. This data is built-in to R.  That is we don't have to import it, it is immediately available.Because of this, it won't show up in the environment pane.
+
+This dataset is documented in ?starwars.  That is, to learn more about this data set, type ?starwars in a code chunk or the console.
+
+Let's take a look at the data to see what it looks like.  Run each of the following commands one at a time, using ctrl-enter
+
+```{r eval=FALSE, include=FALSE}
+#View() our data set, starwars. This creates a nice table in a new tab showing the data
+
+
+```
+
+Note that starwars is a tibble, a modern reimagining of the data frame. It’s particularly useful for large datasets because it only prints the first few rows. You can learn more about tibbles at https://tibble.tidyverse.org; in particular you can convert data frames to tibbles with as_tibble().
+
+Single table verbs
+dplyr aims to provide a function for each basic verb of data manipulation. These verbs can be organised into three categories based on the component of the dataset that they work with:
+
+### Rows:
+
+**filter()** chooses rows based on column values.
+**slice()** chooses rows based on location.
+**arrange()** changes the order of the rows.
+
+### Columns:
+
+**select()** changes whether or not a column is included.
+**rename()** changes the name of columns.
+**mutate()** changes the values of columns and creates new columns.
+**relocate()** changes the order of the columns.
+Groups of rows:
+**summarise()** collapses a group into a single row.
+
+**The pipe**
+
+All of the dplyr functions take a data frame (or tibble) as the first argument. Dplyr provides the %>% operator which channels, or "pipes" the results from one step directly “piped” into the next step. You can use the pipe to rewrite multiple operations that you can read left-to-right, top-to-bottom (reading the pipe operator as “then”).  
+For example:
+
+A %>% B %>% C 
+
+would be read as:  Do step A, then pipe the results of A into step B, then pipe the results of B into step C
+
+Let's see some of these in action
+
+**Filter** 
+
+The filter() function allows you to select a subset of rows in a data frame. Like all single verbs, the first argument is the tibble (or data frame). The second and subsequent arguments refer to variables within that data frame, selecting rows where the expression is TRUE.
+
+For example, we can select all characters with light skin color and brown eyes with:
+
+```{r}
+#Select all characters with light skin color and brown eyes with
+
+
+```
+
+**Arrange**
+
+arrange() reorders rows. It takes a data frame, and a set of column names (or more complicated expressions) to order by. If you provide more than one column name, each additional column will be used to break ties in the values of preceding columns.
+
+This is basically sorting the data like the custom sort command in Excel. R uses the term "sort" for sorting in base R, so it uses a different word here - arrange.
+
+Here's an example of arrange, arranging the data first by height, then by mass.
+
+```{r}
+
+#arranging the data first by height.
+
+
+#Use desc() to order a column in descending order:
+
+
+#arranging the data first by height, then by mass.
+
+
+
+```

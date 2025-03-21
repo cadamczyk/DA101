@@ -1,0 +1,100 @@
+---
+title: "Strings"
+author: "DA101"
+date: "2025-03-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("babynames")
+library(babynames)
+```
+
+
+```{r}
+#Creating a string
+string1 <- "This is a string"
+string2 <- 'Include a "quote" inside a string'
+```
+
+
+```{r}
+#Forget to close the string
+string3 <- "This is a string without a closing quote"
+
+```
+
+```{r}
+#Special characters
+special <- "It\'s a sunny day"
+special
+```
+
+```{r}
+#Practice: Create a string containing the following value: He said "That's amazing!"
+string4 <- 'He said "That\'s amazing"'
+
+```
+
+str_c() takes any number of vectors as arguments and returns a character vector:
+```{r}
+#Creating many strings from data
+str_c("x", "y")
+
+str_c("x", "y", "z")
+
+str_c("Hello ", c("John", "Susan"))
+
+```
+tibble() constructs a data frame
+```{r}
+#Use multiple strings to create a data frame 
+df <- tibble(name = c("Flora", "David", "Terra"))
+df %>% 
+  mutate(greeting = str_c("Hi ", name, "!"))
+```
+
+str_flatten(): it takes a character vector and combines each element of the vector into a single string:
+```{r}
+str_flatten(c("x", "y", "z"))
+
+str_flatten(c("x", "y", "z"), ", ")
+
+str_flatten(c("x", "y", "z"), ", ", last = ", and ")
+```
+
+This makes it work well with summarize():
+```{r}
+df2 <- tribble(
+  ~ name, ~ fruit,
+  "Carmen", "banana",
+  "Carmen", "apple",
+  "Marvin", "nectarine",
+  "Terence", "cantaloupe",
+  "Terence", "papaya",
+  "Terence", "kiwi")
+
+df2 %>%
+  group_by(name) %>%
+  summarize(fruits = str_flatten(fruit, ", "))
+```
+
+str_length() tells you the number of letters in the string:
+```{r}
+#String length
+str_length(c("a", "R for data science", NA))
+```
+
+You could use this with count() to find the distribution of lengths of US babynames and then with filter() to look at the longest names, which happen to have 15 letters
+```{r}
+babynames %>%
+  filter(str_length(name) == 15) %>% 
+  count(name, wt = n, sort = TRUE)
+```
+

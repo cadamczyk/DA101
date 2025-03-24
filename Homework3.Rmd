@@ -1,0 +1,46 @@
+---
+title: "Homework 3"
+author: "DA101"
+date: "2025-03-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("lubridate")
+library(lubridate)
+```
+
+
+```{r}
+data("weather")
+```
+
+```{r}
+#Find the minimum, mean and maximum temperature
+
+
+```
+
+```{r}
+#Create a new dataset called weather_temp by selecting year, month, day, hour, and temp from weather. Use make_datetime to create a column that includes date and time together called temperature
+
+
+```
+
+
+```{r}
+#Create a bar graph to show the average temperature per month
+
+```

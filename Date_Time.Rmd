@@ -75,8 +75,19 @@ library(ggplot2)
 
 ```{r}
 #Or in a single day:
-
+   
 
 # 600 s = 10 minutes
+```
+
+```{r}
+#Getting components
+
+```
+
+```{r}
+#Add labels
+
+
 ```
 

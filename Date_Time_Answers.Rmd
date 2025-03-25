@@ -1,0 +1,135 @@
+---
+title: "Date"
+author: "DA101"
+date: "2025-03-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("nycflights13")
+library(nycflights13)
+```
+
+
+```{r}
+#current date and time
+today()
+
+now()
+```
+
+
+```{r}
+#date from strings
+ymd("2017-01-31")
+
+mdy("January 31st, 2017")
+
+dmy("31-Jan-2017")
+
+```
+
+
+```{r}
+#date-time from string
+ymd_hms("2017-01-31 20:11:59")
+
+mdy_hm("01/31/2017 08:01")
+
+```
+
+
+```{r}
+#add a timezone
+ymd_hms("2017-01-31 10:30:15", tz = "EST")
+```
+
+```{r}
+flights %>% 
+  select(year, month, day, hour, minute)
+```
+
+```{r}
+#use make_datetime to create a column that includes date and time together
+flights %>% 
+  select(year, month, day, hour, minute) %>% 
+  mutate(departure = make_datetime(year, month, day, hour, minute))
+
+```
+
+```{r}
+#Create a function
+make_datetime_100 <- function(year, month, day, time) {
+  make_datetime(year, month, day, time %/% 100, time %% 100)
+}
+
+flights_dt <- flights %>% 
+  filter(!is.na(dep_time), !is.na(arr_time)) %>% 
+  mutate(
+    dep_time = make_datetime_100(year, month, day, dep_time),
+    arr_time = make_datetime_100(year, month, day, arr_time),
+    sched_dep_time = make_datetime_100(year, month, day, sched_dep_time),
+    sched_arr_time = make_datetime_100(year, month, day, sched_arr_time)
+  ) %>% 
+  select(origin, dest, ends_with("delay"), ends_with("time"))
+flights_dt
+```
+
+```{r}
+#visualize the distribution of departure times across the year:
+flights_dt %>% 
+  ggplot(aes(x = dep_time)) + 
+  geom_freqpoly(binwidth = 86400)
+
+# 86400 seconds = 1 day
+
+```
+
+```{r}
+#Or in a single day:
+flights_dt %>% 
+  filter(dep_time < ymd(20130102)) %>% 
+  ggplot(aes(x = dep_time)) + 
+  geom_freqpoly(binwidth = 600) 
+
+# 600 s = 10 minutes
+```
+
+```{r}
+#Getting components
+datetime <- ymd_hms("2016-07-08 12:34:56")
+year(datetime)
+month(datetime)
+mday(datetime)
+
+yday(datetime)
+wday(datetime)
+```
+
+```{r}
+#Add labels
+month(datetime, label = TRUE)
+
+wday(datetime, label = TRUE, abbr = FALSE)
+```
+
+```{r}
+#Create a bar graph to show the total number of flights by day of the week
+flights_dt %>% 
+  mutate(wday = wday(dep_time, label = TRUE)) %>% 
+  ggplot(aes(x = wday)) +
+  geom_bar()
+```
+

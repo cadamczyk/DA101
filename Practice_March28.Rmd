@@ -1,0 +1,49 @@
+---
+title: "In-Class Activity March 28"
+author: "DA101"
+date: "2025-03-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("nycflights13")
+library(nycflights13)
+```
+
+
+```{r}
+data(airlines)
+data(flights)
+
+```
+
+
+```{r}
+#Create a new dataset called flights2 by selecting year, month, day, hour, minute, origin, dest, tailnum, carrier from flights. Also use make_datetime() to make a new variable called departure
+
+``` 
+
+
+```{r}
+#Join flights2 with airlines by carrier
+
+```
+
+
+```{r}
+#Plot a bar graph for departure time by day of the week using wday
+
+```
+

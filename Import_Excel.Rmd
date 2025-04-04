@@ -1,0 +1,95 @@
+---
+title: "Import Excel"
+author: "DA101"
+date: "2025-03-27"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("readxl")
+library(readxl)
+
+```
+
+
+```{r}
+#Import students
+students <- read_excel("C:/Users/carol/OneDrive/Documents/Albion Teaching/DA_101/students_xl.xlsx")
+```
+
+
+```{r}
+#Import students but change the column names to the same format
+students <- read_excel("C:/Users/carol/OneDrive/Documents/Albion Teaching/DA_101/students_xl.xlsx",
+  col_names = c("student_id", "full_name", "favourite_food", "meal_plan", "age"))
+```
+
+
+```{r}
+#Import students but change the column names to the same format
+students <- read_excel("C:/Users/carol/OneDrive/Documents/Albion Teaching/DA_101/students_xl.xlsx",
+  col_names = c("student_id", "full_name", "favourite_food", "meal_plan", "age"),
+                skip = 1)
+```
+
+
+```{r}
+#Import students and add "" for NA
+students <- read_excel("C:/Users/carol/OneDrive/Documents/Albion Teaching/DA_101/students_xl.xlsx",
+  col_names = c("student_id", "full_name", "favourite_food", "meal_plan", "age"),
+  skip = 1,
+  na = c("", "N/A"))
+```
+
+
+```{r}
+#Import sheets
+penguins <- read_excel("C:/Users/carol/OneDrive/Documents/Albion Teaching/DA_101/penguins.xlsx", sheet = "Torgersen Island")
+```
+
+```{r}
+#Import sheets and NA
+penguins_torgersen <- read_excel("C:/Users/carol/OneDrive/Documents/Albion Teaching/DA_101/penguins.xlsx", sheet = "Torgersen Island", na = "NA")
+```
+
+
+```{r}
+#Excel sheets 
+excel_sheets("C:/Users/carol/OneDrive/Documents/Albion Teaching/DA_101/penguins.xlsx")
+```
+
+```{r}
+penguins_biscoe <- read_excel("C:/Users/carol/OneDrive/Documents/Albion Teaching/DA_101/penguins.xlsx", sheet = "Biscoe Island", na = "NA")
+```
+
+```{r}
+penguins_dream <- read_excel("C:/Users/carol/OneDrive/Documents/Albion Teaching/DA_101/penguins.xlsx", sheet = "Dream Island", na = "NA")
+```
+
+```{r}
+#Get the dimensions of each dataset
+dim(penguins_torgersen)
+
+dim(penguins_biscoe)
+
+dim(penguins_dream)
+```
+
+```{r}
+#Stack all three datasets
+penguins <- bind_rows(penguins_torgersen, penguins_biscoe, penguins_dream)
+penguins
+```
+

@@ -1,0 +1,63 @@
+---
+title: "Import Excel Practice"
+author: "DA101"
+date: "2025-04-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("readxl")
+library(readxl)
+```
+
+Analysis the number of noise complaints at New York Bars and residential properties. 
+```{r}
+#Upload excel sheet Club
+
+```
+
+
+```{r}
+#Upload excel sheet Residential
+
+```
+
+
+```{r}
+#Check the dimensions of both datasets
+
+```
+
+
+```{r}
+#Use bind_rows() to create a new dataset called noise
+
+```
+
+```{r}
+#Create a bar chart graphing the total number of complaints by Borough
+
+```
+
+
+```{r}
+#use month() to create a new variable that identifies the month a complaint was created
+
+```
+
+```{r}
+#Create a bar chart graphing the total number of complaints by month. Customize your graph.
+
+```
+

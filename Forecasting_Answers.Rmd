@@ -1,0 +1,73 @@
+---
+title: "Forecasting"
+author: "DA101"
+date: "2025-03-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("forecast")
+library(forecast)
+install.packages("dplyr")
+library(dplyr)
+
+```
+
+
+```{r}
+data(AirPassengers)
+
+```
+
+```{r}
+#Type of data
+class(AirPassengers)
+```
+
+
+```{r}
+#Plot the data
+plot(AirPassengers)
+```
+
+
+```{r}
+#Plot the components of the time series
+data<-ts(AirPassengers, frequency=12)
+d<-decompose(data, "multiplicative")
+plot(d)
+```
+
+
+```{r}
+# h = 10*12 because, forecast is for 10 years for all 12 months
+model<-auto.arima(AirPassengers)
+summary(model)
+
+f<-forecast(model, level=c(95), h=10*12)
+plot(f)
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+

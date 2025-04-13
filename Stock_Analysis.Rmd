@@ -16,20 +16,31 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("forecast")
+library(forecast)
+install.packages("dplyr")
+library(dplyr)
+install.packages("plotly")
+library(plotly)
 install.packages("quantmod")
 library(quantmod)
 ```
 
 
 ```{r}
+df <- getSymbols("AAPL", from = "2024-01-01", to = "2024-12-31", warnings = FALSE, auto.assign = FALSE)
 
-
+df <- data.frame(df)
+names(df) <- c('Open', 'High', 'Low', 'Close','Volume','Adjusted')
+df$Date <- as.Date(rownames(df))
 ```
 
 
 ```{r}
 #Remove missing values
-
+AAPL_clean <- na.omit(df)
 
 ```
 
@@ -43,12 +54,15 @@ library(quantmod)
 ```{r}
 #Plot daily stock price with moving average
 
+
 #Plot the adjusted close and the moving average
 
 ```
 
 
 ```{r}
+#Candlestick chart
+
 ```
 
 

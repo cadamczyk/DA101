@@ -56,13 +56,25 @@ AAPL_clean <- na.omit(df)
 
 
 #Plot the adjusted close and the moving average
-
+ggplot() +
+    geom_line(data = AAPL_clean, aes(x = Date, y = Adjusted, color = "Daily Price")) +
+    geom_line(data = AAPL_clean, aes(x = Date, y = ma30, color = "Monthly Moving Average"))  +
+    ylab('AAPL Stock Price') +
+    xlab('Time') +
+    labs(color = 'Trendline')
 ```
 
 
 ```{r}
 #Candlestick chart
+i <- list(line = list(color = 'Green'))
+d <- list(line = list(color = 'Red'))
 
+fig <- AAPL_clean %>% plot_ly(x = ~Date, type="XXX",
+          open = ~Open, close = ~Close,
+          high = ~High, low = ~Low,
+          increasing = i, decreasing = d)
+fig
 ```
 
 

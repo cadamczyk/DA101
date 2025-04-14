@@ -1,0 +1,96 @@
+---
+title: "Final Project"
+author: "DA101"
+date: "2025-02-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("forecast")
+library(forecast)
+install.packages("dplyr")
+library(dplyr)
+install.packages("plotly")
+library(plotly)
+```
+
+## R Markdown
+
+```{r}
+#Upload your dataset
+
+```
+
+```{r}
+#summarize your dataset
+
+```
+
+```{r}
+#change your date column to a date character
+
+
+```
+
+
+```{r}
+#Clean data by removing missing values
+
+```
+
+```{r}
+#Calculate the daily return. Call this new column 'returns'
+```
+
+```{r}
+#What is the mean average return?
+
+```
+
+```{r}
+#Create a line chart of the daily stock prices at closing for 2024. Add a trend line using geom_smooth(). Must include axis labels, and graph title.
+
+```
+
+```{r}
+#Create a new variable that is the difference between the opening and closing price
+
+```
+
+```{r}
+#Plot the decomposition components of the time series. Set the frequency to 12
+
+
+```
+
+```{r}
+#Calculate the moving average of the adjusted close
+
+
+
+#Plot the adjusted close and the moving average
+
+```
+
+```{r}
+#Make a candlestick graph
+
+
+```
+
+```{r}
+#Forecast the future adjusted closing price. Set h=25. Summarize your forecast.
+
+```
+
+```{r}
+#Plot your forecast
+
+```
+
